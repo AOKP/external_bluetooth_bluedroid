@@ -1,5 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
+ifneq ($(BOARD_HAVE_BLUETOOTH_BLUEZ), true)
 # Setup bdroid local make variables for handling configuration
 ifneq ($(BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR),)
   bdroid_C_INCLUDES := $(BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR)
@@ -12,6 +13,7 @@ endif
 
 include $(call all-subdir-makefiles)
 
+endif
 # Cleanup our locals
 bdroid_C_INCLUDES :=
 bdroid_CFLaGS :=
